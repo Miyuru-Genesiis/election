@@ -3,7 +3,7 @@
 setwd("E:/Studies/R/election-survey/Scripts")
 
 #library(ggplot2)
-#library(plyr)
+library(plyr)
 
 source("plotting.R")
 
@@ -35,6 +35,7 @@ df <- readFile("data.csv")
 
 # process issue summary question
 y <- countColumnFreq(df, 6)
+y
 
 # create dataframe
 dataFrame <- createDataFrame(y$vote_summary, y$freq)
