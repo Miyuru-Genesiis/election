@@ -1,7 +1,8 @@
 
 # Load liberaries
 library(ggplot2)
-library(dplyr)
+library(plyr)
+#library(dplyr)
 library(ggrepel)
 
 
@@ -86,19 +87,21 @@ plotFigure2 <- function( dataFrame ) {
 createDonutChart <- function(data){
   
   # Compute percentages
-  data$fraction <- data$freq / sum(data$freq)
+  #data$fraction <- data$freq / sum(data$freq)
+  
+  #data$percent <- data$fraction * 100
   
   # Compute the cumulative percentages (top of each rectangle)
-  data$ymax <- cumsum(data$fraction)
+  #data$ymax <- cumsum(data$fraction)
   
   # Compute the bottom of each rectangle
-  data$ymin <- c(0, head(data$ymax, n=-1))
+  #data$ymin <- c(0, head(data$ymax, n=-1))
   
   # Compute label position
-  data$labelPosition <- (data$ymax + data$ymin) / 2
+  #data$labelPosition <- (data$ymax + data$ymin) / 2
   
   # Compute a good label
-  data$label <- paste0(data$vote_summary, "\n", data$freq)
+  #data$label <- paste0(data$vote_summary, " : ", data$percent, "%")
   
   # Make the plot
   ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=vote_summary)) +
