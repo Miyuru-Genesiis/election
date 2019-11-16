@@ -34,6 +34,22 @@ readFile <- function(fileName){
 # load the dataset
 df <- readFile("data.csv")
 
+
+# users voting choice
+# process issue summary question
+y <- countColumnFreq(df, 4)
+y
+
+# create dataframe
+dataFrame0 <- createDataFrame(y$individual_voting, y$freq)
+
+dataFrame0 <- dataFrameProcessing(dataFrame0)
+dataFrame0
+# plotting
+setPlotName('../Figures/vote_summery.jpg')
+createDonutChart(dataFrame0)
+dev.off()
+
 # process issue summary question
 y <- countColumnFreq(df, 6)
 y
